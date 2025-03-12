@@ -13,25 +13,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         console.log(url);
 
-        // Make another fetch request using the extracted URL
-        const testResponse = await fetch(`${url}/test`);
-        if (!testResponse.ok) {
-            throw new Error(`HTTP error! status: ${testResponse.status}`);
-        }
-        
-       fetch(`${url}/test`, {
-          headers: {
-            'User-Agent': 'curl/7.64.1'
-          }
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error(error));
+        // Create an iframe and set the URL
+        const iframe = document.createElement('iframe');
+        iframe.src = url;
+        iframe.frameBorder = '0';
+        iframe.width = '100%';
+        iframe.height = '100%';
+        document.body.appendChild(iframe);
 
-        const testData = await testResponse.text();
-
-        // Display the result
-        resultDiv.innerText = JSON.stringify(testData, null, 2);
     } catch (error) {
         resultDiv.innerText = `Error: ${error.message}`;
     }
