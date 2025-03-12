@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             throw new Error(`HTTP error! status: ${testResponse.status}`);
         }
         
-         fetch('https://109e-197-185-136-72.ngrok-free.app/test', {
+         fetch(`${url}/test`, {
           headers: {
             'ngrok-skip-browser-warning': 'true'
           }
