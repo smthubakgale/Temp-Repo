@@ -21,8 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
        fetch(`${url}/test`, {
           headers: {
-            'ngrok-skip-browser-warning': 'true',
-            'User-Agent': 'MyCustomBrowser/1.0'
+            'User-Agent': 'curl/7.64.1'
           }
         })
         .then(response => response.json())
