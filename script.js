@@ -11,11 +11,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Extract the URL from the JSON data
         const url = jsonData.url;
 
+        console.log(url);
+
         // Make another fetch request using the extracted URL
         const testResponse = await fetch(`${url}/test`);
         if (!testResponse.ok) {
             throw new Error(`HTTP error! status: ${testResponse.status}`);
         }
+
+        console.log(testResponse.text());
         const testData = await testResponse.json();
 
         // Display the result
