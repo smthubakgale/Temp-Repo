@@ -18,9 +18,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!testResponse.ok) {
             throw new Error(`HTTP error! status: ${testResponse.status}`);
         }
-
-        console.log(testResponse.text());
-        const testData = await testResponse.json();
+ 
+        const testData = await testResponse.text();
 
         // Display the result
         resultDiv.innerText = JSON.stringify(testData, null, 2);
