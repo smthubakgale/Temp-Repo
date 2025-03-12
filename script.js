@@ -19,9 +19,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             throw new Error(`HTTP error! status: ${testResponse.status}`);
         }
         
-         fetch(`${url}/test`, {
+       fetch(`${url}/test`, {
           headers: {
-            'ngrok-skip-browser-warning': 'true'
+            'ngrok-skip-browser-warning': 'true',
+            'User-Agent': 'MyCustomBrowser/1.0'
           }
         })
         .then(response => response.json())
