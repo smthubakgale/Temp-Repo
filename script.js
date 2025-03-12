@@ -18,7 +18,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!testResponse.ok) {
             throw new Error(`HTTP error! status: ${testResponse.status}`);
         }
- 
+        
+         fetch('https://109e-197-185-136-72.ngrok-free.app/test', {
+          headers: {
+            'ngrok-skip-browser-warning': 'true'
+          }
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+
         const testData = await testResponse.text();
 
         // Display the result
